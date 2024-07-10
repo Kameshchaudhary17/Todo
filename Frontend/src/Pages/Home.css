@@ -1,0 +1,109 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.container h1{
+        color: black;
+        font-size: 50px;
+    }
+
+.container button{
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(77, 214, 168);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: brown;
+    color: aliceblue;
+    height: 300px;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.card h1{
+    font-size: 30px;
+}
+.card p {
+   overflow-y: scroll;
+    text-align: justify;
+   
+}
+.btn{
+    display: flex;
+    gap: 5px;
+}
+
+.btn button{
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(77, 214, 168);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.layout{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout form{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    gap: 20px;
+    padding: 5px;
+}
+.layout input{
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.layout textarea{
+    height: 150px;
+    width: 250px;
+}
+.layout button{
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(77, 214, 168);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
