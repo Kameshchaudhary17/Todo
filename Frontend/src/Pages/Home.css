@@ -32,25 +32,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     background-color: brown;
     color: aliceblue;
     height: 300px;
     width: 300px;
-    padding: 5px;
+    padding:10px;
     border-radius: 5px;
 }
 .card h1{
+    color: aliceblue;
     font-size: 30px;
 }
 .card p {
    overflow-y: scroll;
+   overflow: hidden;
     text-align: justify;
    
 }
 .btn{
+    position: fixed;
     display: flex;
+    margin-top: 250px;
     gap: 5px;
 }
 
