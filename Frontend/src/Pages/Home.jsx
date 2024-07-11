@@ -7,6 +7,14 @@ const Home = () => {
 
   const[flag, setFlag] = useState(0)
   const [data, setData] = useState([])
+  const[formvisible, setFormVisible] = useState(false)
+  const[addVisible, setAddVisible] = useState(false)
+  const[formData, setFormData] = useState({
+    title: '',
+    description: ''
+  })
+
+
   useEffect(()=>{
     axios.get("http://localhost:5555/getcard")
     .then((res)=>{
@@ -30,9 +38,34 @@ const Home = () => {
     }
   }
 
+  const handleEdit = (card)=>{
+    setFormData(card);
+    setFormVisible(true);
+  }
 
-  const[formvisible, setFormVisible] = useState(false)
-  const[addVisible, setAddVisible] = useState(false)
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:5555/updatecard", formData)
+    .then((res)=>{
+      setFlag(flag + 1);
+        setFormVisible(false);
+        console.log(res.data.message);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  
+
   return (
     <>
     <div className="container">
@@ -46,7 +79,7 @@ const Home = () => {
           <p>{value.description}</p>
           <div className="btn">
             <button onClick={()=> handleDelete(value.id)}>Delete</button>
-            <button onClick={()=>{setFormVisible(true)}}>Edit</button>
+            <button onClick={()=>handleEdit(value)}>Edit</button>
           </div>
         </div>
         ))}
@@ -55,7 +88,7 @@ const Home = () => {
     {formvisible &&
     <div className="layout">
      
-      <form action="">
+      <form onSubmit={handleSubmit}>
       <button
               type="button"
               className="close-popup-btn"
@@ -64,8 +97,15 @@ const Home = () => {
               &times;
             </button>
         <h1>Edit Form</h1>
-        <input type="text"  name=''/>
-        <textarea name="" id=""></textarea>
+        <input type="text"  name='title'
+        value={formData.title}
+        onChange={handleChange}
+        />
+
+        <textarea name="description" id="" 
+        value={formData.description}
+        onChange={handleChange}
+        ></textarea>
         <button>Edit</button>
       </form>
     </div>}

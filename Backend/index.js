@@ -5,6 +5,7 @@ import db from '../Backend/controller/db.js';
 import getCardRoute from './routers/getCardRoutes.js'
 import createCardRoute from './routers/createCardRoute.js';
 import deleteCardRoute from './routers/deleteCardRoute.js';
+import updateCardRoute from './routers/updateCardRoute.js';
 
 
 dotenv.config()
@@ -18,6 +19,7 @@ app.use(cors());
 app.use('/', createCardRoute)
 app.use('/', getCardRoute)
 app.use('/', deleteCardRoute)
+app.use('/', updateCardRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT,(req,res)=>{
